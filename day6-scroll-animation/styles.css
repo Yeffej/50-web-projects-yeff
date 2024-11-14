@@ -1,0 +1,58 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+.title {
+    margin: 15px 0;
+    font-size: 3em;
+}
+
+.card {
+    width: min(50vw, 400px);
+    height: min(30vh, 220px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 16px 0;
+    font-family: system-ui, sans-serif;
+    font-size: 3em;
+    font-weight: 600;
+    border-radius: 8px;
+    box-shadow: 1px 2px 5px 0px #666;
+    background-color: #29c143;
+    color: white;
+    pointer-events: none;
+    transform: translateX(calc(var(--direction) * 100vw));
+    transition: 500ms linear transform;
+    /*  USE TO DO THE ANIMATION WITH CSS ONLY (USING SOME EXPERIMENTAL PROPS)
+    animation-name: Appear;
+    animation-duration: 500ms;
+    animation-fill-mode: both;
+    animation-timeline: view(50%); */
+}
+
+.card.show {
+    transform: translateX(0);
+}
+
+/* USE TO DO THE ANIMATION WITH CSS ONLY
+@keyframes Appear {
+    0% {
+        transform: translateX(calc( var(--direction) * 100vw ));
+    }
+    
+    100% {
+        transform: translateX(0);
+    }
+} */

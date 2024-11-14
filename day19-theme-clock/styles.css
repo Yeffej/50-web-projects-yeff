@@ -1,0 +1,136 @@
+/* Default light mode colors */
+:root {
+    --bg-primary: #ffffff;
+    --bg-secondary: #000;
+    --font-color: #000000;
+    --font-color-inverse: #fff;
+    --font-color-inverse-light: #a1a1a1;
+}
+
+/* Override dark mode if data-theme="dark" is set (via JS) */
+[data-theme="dark"] {
+    --bg-primary: #121212;
+    --bg-secondary: #fff;
+    --font-color: #fff;
+    --font-color-inverse: #000;
+    --font-color-inverse-light: #515151;
+}
+
+
+* { 
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    width: 100%;
+    min-height: 100vh;
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--bg-primary);
+    color: var(--font-color);
+    transition: 0.5s ease background-color, 0.5s ease color;
+}
+
+main {
+    width: 100%;
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.title {
+    font-size: 3em;
+    margin: 30px 0;
+}
+
+.mode-changer {
+    margin-bottom: 20px;
+    padding: 10px;
+    background-color: var(--bg-secondary);
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    font-size: 1.1em;
+    font-weight: 600;
+    color: var(--font-color-inverse);
+    cursor: pointer;
+}
+
+.clock {
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    border: 4px solid var(--bg-secondary);
+    position: relative;
+    margin-bottom: 1rem;
+    transform: rotate(90deg);
+}
+.clock::after {
+    content: '';
+    width: 7px;
+    height: 7px;
+    background-color: var(--bg-secondary);
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.clock::before {
+    content: '';
+    width: 11px;
+    height: 11px;
+    background-color: #f00;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.hand {
+    height: 3px;
+    background-color: var(--bg-secondary);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform-origin: right center;
+}
+.hand.small {
+    width: calc(100% / 4);
+    transform: translate(-100%, -50%) rotate(var(--rotation));
+}
+.hand.big {
+    width: calc(100% / 2.5);
+    transform: translate(-100%, -50%) rotate(var(--rotation));
+}
+.hand.second {
+    width: calc(100% / 2);
+    background-color: red;
+    transform: translate(-100%, -50%) rotate(var(--rotation));
+}
+
+.display {
+    text-align: center;
+}
+.time {
+    margin-bottom: 10px;
+    font-size: 2.5em;
+    font-weight: 900;
+}
+.date {
+    margin-top: 10px;
+    font-size: 1em;
+    font-weight: 600;
+    color: var(--font-color-inverse-light);
+}
+
+.date span {
+    padding: 2px;
+    background-color: var(--bg-secondary);
+    border-radius: 50%;
+    color: var(--font-color-inverse);
+}

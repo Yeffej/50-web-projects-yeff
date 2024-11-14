@@ -1,0 +1,70 @@
+* { 
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    width: 100%;
+    height: 100vh;
+}
+
+.wrapper {
+    width: 100%;
+    height: 100%;
+    display: flex;
+}
+.hero {
+    flex: 1;
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: left center;
+    overflow-x: hidden;
+    transition: 1s linear flex;
+}
+.hero.playstation {
+    background-image: url('https://c.files.bbci.co.uk/f310/live/f36de0e0-6f86-11ef-b410-fbf02dca0fc5.png');
+}
+.hero.xbox {
+    background-image: url('https://sm.ign.com/ign_nordic/news/x/xbox-serie/xbox-series-x-all-digital-edition-officially-announced-xbox_ybc1.jpg');
+}
+.hero::before {
+    content: "";
+    position: absolute;
+    inset: 0 0 0 0;
+    background-color: var(--overlay-color);
+}
+.hero:hover {
+    flex: 4;
+}
+.hero-title {
+    white-space: nowrap;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 3.8em;
+    color: #fff;
+    margin-bottom: 20px;
+    z-index: 1;
+}
+.hero-action-btn {
+    width: 200px;
+    height: 60px;
+    border: 2px solid #fff;
+    background-color: transparent;
+    color: #fff;
+    font-weight: 600;
+    font-size: 1.2em;
+    cursor: pointer;
+    transition: 200ms ease background-color;
+    z-index: 1;
+}
+.hero-action-btn:hover {
+    background-color: var(--action-bg);
+    border: none;
+}

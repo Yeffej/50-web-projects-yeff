@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/src/styles.css">
+    <title>Progress Steps</title>
+</head>
+<body>
+    <div class="progress-steps">
+        <div class="steps-wrapper">
+            <div class="progress-line"></div>
+            <div class="step active">
+                <span>1</span>
+            </div>
+            <div class="step">
+                <span>2</span>
+            </div>
+            <div class="step">
+                <span>3</span>
+            </div>
+            <div class="step">
+                <span>4</span>
+            </div>
+        </div>
+        <div class="steps-actions">
+            <button disabled onclick="previous(this)">Prev</button>
+            <button onclick="next(this)">Next</button>
+        </div>
+    </div>
+
+    <script src="/src/main.js"></script>
+</body>
+</html>

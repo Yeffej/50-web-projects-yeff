@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Drag and Drop</title>
+</head>
+<body>
+    <div class="dragobj" draggable="true" id="obj" ondragstart="dragstartHandler(event)">
+        <span>Drag Me!</span>
+    </div>
+    <main>
+        <div class="dropbox" ondragleave="dragleaveHandler(event)" ondrop="dropHandler(event)" ondragover="dragoverHandler(event)"></div>
+        <div class="dropbox" ondragleave="dragleaveHandler(event)" ondrop="dropHandler(event)" ondragover="dragoverHandler(event)"></div>
+        <div class="dropbox" ondragleave="dragleaveHandler(event)" ondrop="dropHandler(event)" ondragover="dragoverHandler(event)"></div>
+        <div class="dropbox" ondragleave="dragleaveHandler(event)" ondrop="dropHandler(event)" ondragover="dragoverHandler(event)"></div>
+        <div class="dropbox" ondragleave="dragleaveHandler(event)" ondrop="dropHandler(event)" ondragover="dragoverHandler(event)"></div>
+    </main>
+
+    <script src="main.js"></script>
+</body>
+</html>

@@ -1,0 +1,47 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.wrapper {
+    width: 80%;
+    display: flex;
+    align-items: center;
+    margin: 0 auto;
+}
+
+.card {
+    height: 80vh;
+    margin: 0 10px;
+    flex: 0.5;
+    background-color: #444;
+    border-radius: 25px;
+    color: #fff;
+    cursor: pointer;
+    position: relative;
+    transition: .7s flex ease-in;
+}
+
+.card label {
+    display: none;
+    position: absolute;
+    bottom: 25px;
+    left: 15px;
+    font-weight: 600;
+}
+
+.active {
+    flex: 5;
+}
+
+.card.active label {
+    display: block;
+}

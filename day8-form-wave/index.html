@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Form Wave</title>
+</head>
+<body>
+    <div class="wrapper">
+        <form action="#">
+            <h2 class="form-title">Please Login</h2>
+            <div class="form-field">
+                <label for="username">User Name</label>
+                <input type="text" name="username" id="username" onfocus="activateField(this)"
+                 onblur="deactivateField(this)">
+            </div>
+            <div class="form-field">
+                <label for="password">Password</label>
+                <input type="text" name="password" id="password" onfocus="activateField(this)"
+                 onblur="deactivateField(this)">
+            </div>
+            <div class="form-action">
+                <input type="button" value="Login">
+            </div>
+        </form>
+    </div>
+
+    <script src="main.js"></script>
+</body>
+</html>

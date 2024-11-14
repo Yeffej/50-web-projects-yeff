@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Drawing App</title>
+</head>
+<body>
+    <main class="wrapper">
+        <div  class="sidebar">
+            <div class="brush-modifiers">
+                <button class="decreaser" onclick="decreaseBrushSize()">-</button>
+                <div class="brush-size" id="brushSize">5</div>
+                <button class="increaser" onclick="increaseBrushSize()">+</button>
+                <input type="color" name="brushColor" id="brushColor">
+            </div>
+            <button class="clear" id="clearBtn">Clear</button>
+        </div>
+        <canvas class="canvas" id="canvas"></canvas>
+    </main>
+
+    <script src="main.js"></script>
+</body>
+</html>

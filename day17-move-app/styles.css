@@ -1,0 +1,133 @@
+:root {
+    /* --primary-color: #4a0483; */
+    /* --secondary-color: #373b69; */
+    --primary-color: #373b69;
+    --secondary-color: #4600a1;
+    --great-color: #21bf24;
+    --good-color: #bfbf21;
+    --bad-color: #bf2121;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    width: 100%;
+    min-height: 100vh;
+    background-color: var(--primary-color);
+}
+
+header {
+    height: 4rem;
+    background-color: var(--secondary-color);
+}
+header nav {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+}
+header nav h1 {
+    color: #fff;
+    font-size: 1.6em;
+    font-weight: 900;
+}
+header nav form input {
+    width: 100%;
+    height: 2.5rem;
+    padding: 0 10px;
+    background-color: transparent;
+    border-radius: 8px;
+    border: 1px solid #fff;
+    outline: none;
+    color: #fff;
+}
+header nav form input:focus {
+    background-color: #260057;
+    border: none;
+}
+
+.movies-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 20px;
+}
+.movie-card {
+    width: 300px;
+    margin: 15px 10px;
+    background-color: var(--secondary-color);
+    box-shadow: 1px 1px 6px 1px rgba(0, 0, 0, 0.3);
+    position: relative;
+    overflow: hidden;
+}
+.movie-picture {
+    width: 100%;
+    height: 450px;
+    background-color: black;
+    border-radius: 5px 5px 0 0;
+    overflow: hidden;
+}
+
+.movie-picture img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.movie-details { 
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+}
+.movie-title {
+    margin-bottom: 15px;
+    font-size: 1.6em;
+    font-weight: 600;
+    color: white;
+}
+.movie-rate {
+    text-align: right;
+    margin: 5px;
+    padding: 5px;
+    background-color: #444;
+}
+.movie-rate span {
+    color: var(--great-color);
+    font-size: 1em;
+    font-weight: 600;
+}
+.movie-rate span.great {
+    color: var(--great-color);
+}
+.movie-rate span.good {
+    color: var(--good-color);
+}
+.movie-rate span.bad {
+    color: var(--bad-color);
+}
+
+.movie-overview {
+    width: 100%;
+    height: 60%;
+    position: absolute;
+    bottom: 0;
+    padding: 20px;
+    background-color: #fff;
+    color: #444;
+    overflow-y: auto;
+    transform: translateY(100%);
+    transition: transform 0.4s ease-in-out;
+}
+.movie-card:hover .movie-overview {
+    transform: translateY(0%);
+}
+.movie-overview  h3 {
+    margin: 10px 0;
+}
+.movie-overview  p {
+    font-size: 1.1em;
+}

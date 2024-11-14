@@ -1,0 +1,62 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&family=Roboto:wght@300;400;500;700;900&display=swap');
+
+* { 
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+}
+
+main {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #33994e;
+    color: #00ad2e;
+}
+
+main button {
+    width: 200px;
+    height: 60px;
+    background-color: #eee;
+    box-shadow: 1px 1px 5px 0px #4446;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+    font-size: 1.1em;
+    font-weight: 600;
+    color: inherit;
+    cursor: pointer;
+    transition: 200ms ease-in-out transform;
+}
+
+main button:active {
+    transform: scale(.8);
+}
+
+.message-stack {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 25px;
+    position: fixed;
+    right: 0;
+    bottom: 0;
+}
+.message {
+    width: 200px;
+    margin: 10px 0;
+    padding: 20px;
+    background-color: #eee;
+    border-radius: 5px;
+    font-size: .9em;
+    font-weight: 400;
+    text-align: center;
+    color: #ff0000;
+}

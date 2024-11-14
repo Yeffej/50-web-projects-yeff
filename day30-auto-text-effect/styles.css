@@ -1,0 +1,89 @@
+/* TODO: JS METHOD AND SPEED CONTROLLER, RESPONSIVE DESIGN  */
+
+:root {
+    --bg-primary: cadetblue;
+    --fcolor-primary: #444;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+body {
+    width: 100%;
+    height: 100vh;
+    font-family: sans-serif;
+    color: var(--fcolor-primary);
+    background-color: var(--bg-primary);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.writter, .writter2 {
+    font-size: 3em;
+    font-weight: 900;
+    white-space: nowrap;
+}
+
+.writter {
+    width: 0;
+    border-right: .15em solid white; 
+    letter-spacing: .15em;
+    overflow: hidden;
+    animation-name: Writter, Blink;
+    animation-duration: 4s, .5s;
+    animation-timing-function: steps(18), ease-in-out;
+    animation-iteration-count: infinite, infinite;
+    animation-direction: alternate, normal;
+}
+
+.writter2 {
+    position: relative;
+}
+.writter2::after {
+    width: 100%;
+    background-color: var(--bg-primary);
+    content: '|';
+    color: white;
+    position: absolute;
+    right: 0;
+    animation-name: Writter2, Blink2;
+    animation-duration: 4s, .5s;
+    animation-timing-function: steps(30), ease-in-out;
+    animation-iteration-count: infinite, infinite;
+    animation-direction: alternate, normal;
+}
+
+
+@keyframes Writter {
+    0% {
+        width: 0;
+    }
+    100% {
+        width: 100%;
+    }
+}
+
+@keyframes Writter2 {
+    0% {
+        width: 100%;
+    }
+    100% {
+        width: 0%;
+    }
+}
+
+@keyframes Blink {
+    from, to { border-color: transparent }
+    50% { border-color: white; }
+}
+
+@keyframes Blink2 {
+    from, to { color: transparent }
+    50% { color: white; }
+  }

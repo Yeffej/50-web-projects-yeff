@@ -1,0 +1,118 @@
+:root {
+    --light-water: #7FDBFF;
+    --mid-water: #39CCCC;
+    --deep-water: #0074D9;
+    --dark-water: #0160b3;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body { 
+    width: 100%;
+    background-color: var(--light-water);
+}
+
+.water-goal-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.water-goal-container h1, .water-goal-container h4 {
+    color: #fff;
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
+}
+.water-goal-container h1 {
+    margin: 20px 0;
+    font-size: 3em;
+    font-weight: 600;
+}
+.water-goal-container h4 {
+    margin: 10px 0;
+    font-size: 1.2em;
+    font-weight: 600;
+}
+
+.water-glass {
+    width: 50px;
+    height: 100px;
+    margin: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color:  #fff;
+    border: 5px solid var(--mid-water);
+    border-radius: 0 0 20px 20px;
+    position: relative;
+    cursor: pointer;
+}
+.water-glass .specifications {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    transition: 1s linear top;
+}
+.water-glass .specifications h4{
+    margin: 0;
+    font-size: 1.2em;
+    font-weight: 600;
+    color: var(--dark-water);
+}
+.water-glass .specifications p{
+    font-size: .75em;
+    font-weight: 400;
+    color: var(--dark-water);
+}
+.water-glass.active {
+    background-color: var(--deep-water);
+}
+.water-glass.goal {
+    width: 150px;
+    height: 300px;
+    border-radius: 0 0 40px 40px;
+    overflow: hidden;
+}
+.water-glass.goal .percentage {
+    width: 100%;
+    height: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    bottom: 0;
+    background-color: var(--deep-water);
+    overflow: hidden;
+    transition: 1s linear height;
+}
+.water-glass.goal .percentage span {
+    display: block;
+    font-size: 1.6em;
+    font-weight: 600;
+    color: var(--light-water);
+}
+
+.water-glasses-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 25px 0;
+    color: #fff;
+}
+.water-glasses-container .title {
+    font-size: 1.45em;
+    font-weight: 600;
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
+    text-align: center;
+}
+.water-glasses {
+    max-width: 400px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://kit.fontawesome.com/736a44c738.js" crossorigin="anonymous"></script>
+    <title>Rotating Navigation</title>
+</head>
+<body>
+    <div class="wrapper">
+        <article class="art">
+            <h1>Amazing Dogs</h1>
+            <p class="author">John Doe</p>
+            <p>
+                Dogs are widely considered to be man's best friend for many reasons. Their loyalty, companionship, and unwavering love have made them popular pets for centuries. 
+                Whether it's a small lapdog or a large working breed, dogs have unique personalities and abilities that make them suitable for various roles in human life.
+                Many dogs are trained to assist humans in tasks like herding, guarding, and even as service animals to help people with disabilities.
+            </p>
+            <p>
+                Dogs come in all shapes and sizes, and each breed has its own set of characteristics. From the playful nature of a Golden Retriever to the protective instincts of a German Shepherd, 
+                there is a breed that fits nearly every lifestyle. Adopting a dog is a rewarding experience that comes with a lot of responsibility, as these animals rely on us for food, shelter, 
+                and care. However, the love and joy they bring make it all worth it.
+            </p>
+            <h2>My Dog</h2>
+            <img src="https://images.unsplash.com/photo-1507146426996-ef05306b995a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2100&q=80" alt="My cute dog">
+            <p>
+                I have a Labrador Retriever named Max. Max is full of energy and loves to play fetch at the park. He's great with kids and always excited to meet new people. 
+                One of my favorite things about Max is his ability to cheer me up on tough days with his wagging tail and goofy antics. 
+                Taking care of him is a joy, and I can't imagine my life without him.
+            </p>
+        </article>
+    </div>
+
+    <div class="circle-wrapper">
+        <div class="hamburger-btn" onclick="openMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <div class="close-btn" onclick="closeMenu()">X</div>
+    </div>
+
+    <nav class="menu">
+        <ul>
+            <li><i class="fas fa-home"></i>  Home</li>
+            <li><i class="fas fa-user-alt"></i> About</li>
+            <li><i class="fas fa-envelope"></i> Contact</li>
+        </ul>
+    </nav>
+
+    <script src="/main.js"></script>
+</body>
+</html>

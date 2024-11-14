@@ -1,0 +1,93 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    width: 100%;
+    height: 100vh;
+}
+
+main {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #222;
+}
+
+.triangle {
+    width: 0;
+    height: 0;
+}
+
+.triangle.left {
+    border-top: 100px solid transparent;
+    border-bottom: 100px solid transparent;
+    border-right: 100px solid #fff;
+    transform-origin: left center;
+    transform: rotate(90deg);
+    animation-name: kineticLeft;
+    animation-delay: .7s;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+}
+
+.triangle.right {
+    border-top: 100px solid transparent;
+    border-bottom: 100px solid transparent;
+    border-left: 100px solid #fff;
+    transform-origin: right center;
+    transform: rotate(0deg);
+    animation-name: kineticRight;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+
+@keyframes kineticRight {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    20% {
+        transform: rotate(0deg);
+    }
+
+    50% {
+        transform: rotate(180deg);
+    }
+
+    70% {    
+        transform: rotate(180deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes kineticLeft {
+    0% {
+        transform: rotate(90deg);
+    }
+
+    20% {
+        transform: rotate(90deg);
+    }
+
+    50% {
+        transform: rotate(270deg);
+    }
+
+    70% {    
+        transform: rotate(270deg);
+    }
+
+
+    100% {
+        transform: rotate(450deg);
+    }
+}
