@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Good Cheap Fast</title>
+</head>
+<body>
+    <main class="wrapper">
+        <h1 class="title">How do you want your project to be?</h1>
+        <div class="choice">
+            <div class="choice-input">
+                <input type="checkbox" name="good" id="good" hidden>
+                <label for="good"></label>
+            </div>
+            <h5 class="choice-label">Good</h5>
+        </div>
+        <div class="choice">
+            <div class="choice-input">
+                <input type="checkbox" name="cheap" id="cheap" hidden>
+                <label for="cheap"></label>
+            </div>
+            <h5 class="choice-label">Cheap</h5>
+        </div>
+        <div class="choice">
+            <div class="choice-input">
+                <input type="checkbox" name="fast" id="fast" hidden>
+                <label for="fast"></label>
+            </div>
+            <h5 class="choice-label">Fast</h5>
+        </div>
+    </main>
+
+    <script>
+        const choices = document.querySelectorAll('.choice');
+        choices.forEach((choice) => {
+            const checkbox = choice.querySelector('input');
+            checkbox.addEventListener('change', ()=> {
+                choice.classList.toggle('active');
+            });
+        });
+    </script>
+</body>
+</html>

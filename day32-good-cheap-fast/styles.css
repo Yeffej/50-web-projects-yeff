@@ -1,0 +1,64 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #448;
+    font-family: 'Roboto', sans-serif;
+}
+
+.wrapper {
+    text-align: center;
+    color: #eee;
+}
+
+.title {
+    font-size: 2em;
+    font-weight: 600;
+}
+
+.choice {
+    width: 80%;
+    max-width: 200px;
+    margin: 20px auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.choice-input {
+    width: 8em;
+    height: 3em;
+    background-color: #777;
+    border-radius: 1.5em;
+    position: relative;
+    transition: .5s linear background-color;
+}
+.choice-input label {
+    display: block;
+    width: 3em;
+    height: 3em;
+    background-color: #eee;
+    border-radius: 50%;
+    position: absolute;
+    left: 0;
+    cursor: pointer;
+    transition: .5s linear left;
+}
+.choice-label {
+    font-size: 1em;
+    font-weight: 600;
+}
+
+.choice.active .choice-input {
+    background-color: #019db3;
+}
+.choice.active .choice-input label {
+    left: 5em;
+    /* transform: translateX(-100%); */
+}
