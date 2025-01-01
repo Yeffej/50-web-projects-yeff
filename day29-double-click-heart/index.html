@@ -4,15 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
+    <script src="https://kit.fontawesome.com/736a44c738.js" crossorigin="anonymous"></script>
     <title>Double Click Heart</title>
 </head>
 <body>
     <main>
         <div class="info">
             <h1 class="info-title">Double click on the image to  it</h1>
-            <h4 class="info-actions">You liked it 0 times</h4>
+            <h4 class="info-actions" id="display">You liked it 0 times</h4>
         </div>
-        <div class="likeme"></div>
+        <div class="likeme">
+            <div class="heart" id="heart">
+                <i class="fa-solid fa-heart"></i>
+            </div>
+        </div>
     </main>
 
     <script src="main.js"></script>

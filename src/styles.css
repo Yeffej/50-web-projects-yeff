@@ -29,20 +29,29 @@ footer {
     padding: 20px;
     text-align: center;
     background: rgba(0, 43, 54, 0.8);
-    position: absolute;
-    bottom: 0;
     font-size: 0.9rem;
+}
+
+main {
+    width: 100%;
+    height: 100vh;
+    background-image: url('/src/images/background.png');
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    /* perspective: 1000px; */
 }
 
 .carousel-container {
     width: 100%;
     max-width: 800px;
-    margin: 60px 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
     transform-style: preserve-3d;
     perspective: 1000px;
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(.8);
 }
 
 .carousel {
@@ -80,6 +89,17 @@ footer {
 .carousel-item:nth-child(6) { transform: rotateY(225deg) translateZ(350px); }
 .carousel-item:nth-child(7) { transform: rotateY(270deg) translateZ(350px); }
 .carousel-item:nth-child(8) { transform: rotateY(315deg) translateZ(350px); }
+
+
+.project-manager {
+
+}
+.project-manager-list {
+
+}
+.project-manager-actions {
+
+}
 
 @keyframes rotate {
     from { transform: rotateY(0deg); }
