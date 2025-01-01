@@ -33,13 +33,31 @@
     </main>
 
     <script>
+        const activeChoicesIdx = []
         const choices = document.querySelectorAll('.choice');
-        choices.forEach((choice) => {
+
+        choices.forEach((choice, idx) => {
             const checkbox = choice.querySelector('input');
             checkbox.addEventListener('change', ()=> {
                 choice.classList.toggle('active');
+                
+                if(checkbox.checked) {
+                    activeChoicesIdx.push(idx);
+                    if(activeChoicesIdx.length == choices.length) {
+                        deactivateChoice(choices[activeChoicesIdx.shift()])
+                    }
+                } else {
+                    const aIdx = activeChoicesIdx.findIndex((el)=> el == idx);
+                    if(aIdx >= 0) activeChoicesIdx.splice(aIdx, 1);
+                }
             });
         });
+
+        function deactivateChoice(choice) {
+            choice.classList.remove('active');
+            const checkbox = choice.querySelector('input');
+            checkbox.checked = false;
+        }
     </script>
 </body>
 </html>
