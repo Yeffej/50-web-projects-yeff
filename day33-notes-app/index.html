@@ -9,17 +9,11 @@
 </head>
 <body>
     <header>
-        <button class="add" id="noteAdder"><i class="fa-solid fa-plus"></i> Add Note</button>
+        <button class="add" id="noteAdder" onclick="addNote()">
+            <i class="fa-solid fa-plus"></i> Add Note
+        </button>
     </header>
-    <main class="notes">
-        <div class="note">
-            <div class="note-head">
-                <button><i class="fa-solid fa-pen-to-square"></i></button>
-                <button><i class="fa-solid fa-trash"></i></button>
-            </div>
-            <textarea class="note-body"></textarea>
-        </div>
-    </main>
+    <main class="notes"></main>
 
     <script src="main.js"></script>
 </body>
