@@ -1,0 +1,38 @@
+:root {
+    --p-color1: #8D9797;
+    --p-color2: #000401;
+    --p-color3: #E5E8E8;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: 'Courier New', Courier, monospace;
+    background: radial-gradient(circle at bottom, var(--p-color2), var(--p-color1));
+    margin: 0;
+}
+
+.title {
+    font-size: 3.5em;
+    font-weight: 600;
+    color: var(--p-color3);
+}
+
+.board {
+    display: grid;
+    grid-template-columns: repeat(30, 1fr);
+    grid-template-rows: repeat(20, 1fr);
+    gap: 5px;
+}
+
+.board-item {
+    width: 15px;
+    height: 15px;
+    background-color: var(--p-color1);
+    transition: 3s linear background-color;
+}
+.board-item:hover { 
+    transition: 0s;
+}

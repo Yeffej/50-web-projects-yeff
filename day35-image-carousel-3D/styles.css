@@ -1,0 +1,143 @@
+* { 
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    width: 100%;
+    min-height: 100vh;
+    font-size: 50px; /* INITILIZE MAIN VALUE*/
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #000;
+    background-image: url("/assets/night-sky.png");
+    background-size: cover;
+    background-position: center;
+    overflow: hidden;
+    perspective: 10em;
+    perspective-origin: 50% calc(50% - 2.5em);
+}
+
+.scene {
+    width: 0;
+    height: 0;
+    position: relative;
+    transform-style: preserve-3d;
+    /* animation: RotateScene 20s linear infinite; */
+
+}
+
+.ground {
+    width: 20em;
+    height: 20em;
+    background-image: radial-gradient(circle at top, #0008 30%, #2226 75%),
+                    url("/assets/ground.jpg");
+    background-repeat: repeat, repeat;
+    background-size: 100%, 2em 2em;
+    position: absolute;
+
+    transform: translate(-50%, -50%) rotateX(90deg);
+}
+
+.carousel {
+    width: 0;
+    height: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform-style: preserve-3d;
+
+    position: absolute;
+    animation: Rotate 10s linear infinite;
+    top: -1em;
+    transform: translateZ(4em) rotateY(0deg);
+}
+.carousel-item {
+    margin: 0 5px;
+    width: 1em;
+    height: 1.5em;
+    overflow: hidden;
+    border-radius: 5px;
+
+    position: absolute;
+    transform-style: preserve-3d;
+}
+.carousel-item:not(.shadow)::after {
+    content: " ";
+    border-radius: 5px;
+    box-shadow: inset 0 0 0.5em 0 #000;
+    position: absolute;
+    inset: 0;
+}
+.carousel-item img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    background-image: linear-gradient(#0002, #0008);
+}
+
+.carousel-item.left {
+    transform: translateX(50%) rotateY(-90deg);
+}
+.carousel-item.right {
+    transform: translateX(-50%) rotateY(90deg);
+}
+.carousel-item.front {
+    transform: translateZ(0.5em);
+}
+.carousel-item.back {
+    transform: translateZ(-0.5em);
+}
+.carousel-item.top {
+    transform: rotateX(90deg);
+}
+.carousel-item.bottom {
+    transform: rotateX(-90deg);
+}
+
+.carousel-item.shadow {
+    border-radius: 5px;
+    background-color: #0004;
+    transform-origin: bottom center;
+    filter: blur(4px);
+}
+.carousel-item.left.shadow {
+    transform: translateX(50%) rotateY(-90deg) rotateX(90deg);
+}
+.carousel-item.right.shadow {
+    transform: translateX(-50%) rotateY(90deg) rotateX(90deg);
+}
+.carousel-item.front.shadow {
+    transform: translateZ(0.5em) rotateX(-90deg);
+}
+.carousel-item.back.shadow {
+    transform: translateZ(-0.5em) rotateX(90deg);
+}
+
+
+
+@keyframes Rotate{
+    from{
+        transform: translateZ(4em) rotateY(0deg);
+    }to{
+        transform: translateZ(4em) rotateY(360deg);;
+    }
+}
+
+/* @keyframes RotateGround{
+    from{
+        transform: translate(-50%, -50%) rotateX(90deg) rotateZ(0deg);
+    }to{
+        transform: translate(-50%, -50%) rotateX(90deg) rotateZ(360deg);;
+    }
+} */
+
+@keyframes RotateScene{
+    from{
+        transform: rotateZ(0deg);
+    }to{
+        transform: rotateZ(360deg);;
+    }
+}

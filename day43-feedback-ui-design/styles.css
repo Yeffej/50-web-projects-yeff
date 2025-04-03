@@ -1,0 +1,94 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    width: 100%;
+    min-height: 100vh;
+    display: grid;
+    place-content: center;
+    background-color: #222;
+    font-family: system-ui, sans-serif;
+    color: #222725;
+}
+
+.feedback {
+    width: 90%;
+    max-width: 600px;
+    padding: 16px;
+    background-color: #fff;
+    box-shadow: 0px 0px 8px #ddd6;
+    text-align: center;
+}
+.feedback-title {
+    font-size: 1.5em;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+.feedback-options {
+    width: max-content;
+    height: 100px;
+    display: flex;
+    margin: 10px auto;
+}
+.feedback-option {
+    height: 50px;
+    margin: 10px;
+    padding: 10px;
+    line-height: 30px;
+    border-radius: 5px;
+    box-shadow: 0px 1px 5px 1px #2221;
+    font-size: .9em;
+    cursor: pointer;
+    color: #aaa9aa;
+}
+.feedback-option.active, .feedback-option:hover {
+    box-shadow: 0px 1px 5px 1px #2226;
+    color: inherit;
+}
+
+.feedback-option:nth-child(1) {
+ align-self: flex-end;
+}
+.feedback-option:nth-child(2) {
+    align-self: center;
+}
+.feedback-option:nth-child(3) {
+    align-self: flex-end;
+}
+
+.send-feedback-btn {
+    min-width: 120px;
+    height: 50px;
+    margin: 12px 0;
+    box-shadow: inset 0px -4px 0px #121113;
+    background-color: #222;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+    font-weight: 600;
+    color: #fff;
+    cursor: pointer;
+    transition: 100ms scale ease;
+}
+.send-feedback-btn:active {
+    scale: 0.8;
+}
+
+.feedback-after-title {
+    font-size: 1.4em;
+    font-weight: 600;
+    margin-bottom: 12px;
+}
+.feedback-after-option {
+    font-size: 1.1em;
+    font-weight: 600;
+    margin-bottom: 12px;
+}
+.feedback-after-descrip {
+    width: 80%;
+    margin: 0 auto 12px auto;
+    font-size: 1em;
+}
