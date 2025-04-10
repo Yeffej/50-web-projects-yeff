@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <script defer src="main.js"></script>
+    <title>Insect Catch Game</title>
+</head>
+<body>
+    <main class="screen">
+        <h1 class="title">Catch The Insect</h1>
+        <button class="play-btn" onclick="nextScreen()">Play Game</button>
+    </main>
+    <section class="screen">
+         <h1 class="select title">What is your "favorite" insect?</h1>
+        <div aria-label="List of insects" class="insects" id="">
+            <!-- HERE GOES INSECTS BUTTONS -->
+        </div>
+    </section>
+    <section class="screen game">
+        <span class="game-time">Time: <strong id="gameTime">00:00</strong></span>
+        <span class="game-score">Score: <strong id="gameScore">0</strong></span>
+        <div class="game-scene" id="scene"></div>
+    </section>
+</body>
+</html>
