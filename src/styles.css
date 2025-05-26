@@ -85,9 +85,19 @@ main {
     width: 100%;
     height: 300px;
     transform-style: preserve-3d;
-    /* transform: rotateY(0deg); */
-    animation: rotate 20s infinite linear;
+    transform: translate(20px, -800px);
+    transition: 3s ease-in-out transform;
+    animation-name: Rotate;
+    animation-duration: 20s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
     position: relative;
+}
+.carousel:hover {
+    animation-play-state: paused;
+}
+.carousel.show {
+    transform: translate(20px, 0px) rotateY(1080deg);
 }
 
 .carousel-item {
@@ -106,7 +116,10 @@ main {
 
     position: absolute;
     top: calc(50% - 100px);
-    left: calc(50% - 80px);
+    left: calc(50% - 75px);
+}
+.carousel-item:hover {
+    scale: 1.2;
 }
 
 /* Carousel rotations */
@@ -137,12 +150,20 @@ main {
 }
 .project-manager-list li {
     margin: 8px 0;
+    animation-name: SlideIn;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease-in;
+    transform: translateX(-100%);
+    opacity: 0;
 }
 .project-manager-actions {
     width: 100%;
     display: flex;
     justify-content: space-between;
     padding: 0 8px;
+    animation: FadeIn 1s linear 4s forwards;
+    opacity: 0;
 }
 .project-manager-actions button {
     width: 40px;
@@ -153,9 +174,29 @@ main {
     cursor: pointer;
 }
 
-@keyframes rotate {
-    from { transform: rotateY(0deg); }
-    to { transform: rotateY(360deg); }
+@keyframes Rotate {
+    from { rotate: y 0deg; }
+    to {  rotate: y 360deg; }
+}
+
+@keyframes SlideIn {
+    0% { 
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0px);
+        opacity: 1;
+    }
+}
+
+@keyframes FadeIn {
+    0% { 
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
 }
 
 /* Responsive adjustments */

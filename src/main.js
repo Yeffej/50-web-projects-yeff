@@ -24,7 +24,11 @@ const PROJECTS = [
   { id: 23, name: "Kinetic Loader", uri: "day23-kinetic-loader" },
   { id: 24, name: "Content Placeholder", uri: "day24-content-placeholder" },
   { id: 25, name: "Sticky Navbar", uri: "day25-sticky-navbar" },
-  { id: 26, name: "Double Vertical Slider", uri: "day26-double-vertical-slider" },
+  {
+    id: 26,
+    name: "Double Vertical Slider",
+    uri: "day26-double-vertical-slider",
+  },
   { id: 27, name: "Toast Notification", uri: "day27-toast-notification" },
   { id: 28, name: "Github_Profiles", uri: "day28-github_profiles" },
   { id: 29, name: "Double Click Heart", uri: "day29-double-click-heart" },
@@ -49,11 +53,18 @@ const PROJECTS = [
   { id: 44, name: "Custom Range Slider", uri: "day44-custom-range-slider" },
   { id: 45, name: "Mini Netfilx Clone", uri: "day45-mini-netfilx-clone" },
   { id: 46, name: "Quiz App", uri: "day46-quiz-app" },
-  { id: 47, name: "Testimonial Box Switcher", uri: "day47-testimonial-box-switcher" },
+  {
+    id: 47,
+    name: "Testimonial Box Switcher",
+    uri: "day47-testimonial-box-switcher",
+  },
   { id: 48, name: "Random Img Feed", uri: "day48-random-img-feed" },
   { id: 49, name: "Todo List", uri: "day49-todo-list" },
   { id: 50, name: "Insect Catch Game", uri: "day50-insect-catch-game" },
 ];
+
+// indicates is the page is fully loaded.
+let isPageLoaded = false;
 
 const carouselWrapper = document.querySelector(".carousel");
 const projectListWrapper = document.querySelector(".project-manager-list");
@@ -75,6 +86,11 @@ goBackBtn.addEventListener("click", () => {
   insertItems();
 });
 
+window.addEventListener("DOMContentLoaded", () => {
+  carouselWrapper.classList.add("show");
+  isPageLoaded = true;
+});
+
 function insertItems() {
   const items = PROJECTS.slice(
     (currentPage - 1) * itemsQuantity,
@@ -85,30 +101,62 @@ function insertItems() {
   const projectItems = items.map(createProjectHtmlItem);
   projectListWrapper.append(...projectItems);
 
-  if (carouselWrapper.children.length > 0) removeCarouselItems();
-  const carouselItems = items.map(createCarouselItem);
-  carouselWrapper.append(...carouselItems);
+  if (carouselWrapper.children.length > 0) {
+    removeCarouselItems(items);
+  } else {
+    addCarouselItems(items);
+  }
 }
 insertItems();
 
 function removeProjectItems() {
-    projectListWrapper.innerHTML = '';
+  projectListWrapper.innerHTML = "";
 }
 
-function removeCarouselItems() {
-    carouselWrapper.innerHTML = '';
+function addCarouselItems(items) {
+  const carouselItems = items.map(createCarouselItem);
+  carouselWrapper.append(...carouselItems);
 }
 
-function createProjectHtmlItem(data) {
+function handleCarouselTransitionEnd(e, items) {
+  if (
+    carouselWrapper.classList.contains("show") ||
+    e.propertyName != "transform"
+  )
+    return;
+
+  carouselWrapper.classList.add("show");
+  carouselWrapper.innerHTML = "";
+  addCarouselItems(items);
+
+  carouselWrapper.removeEventListener(
+    "transitionend",
+    handleCarouselTransitionEnd
+  );
+}
+
+function removeCarouselItems(items) {
+  if (isPageLoaded) {
+    carouselWrapper.classList.remove("show");
+  }
+
+  carouselWrapper.addEventListener("transitionend", (e) =>
+    handleCarouselTransitionEnd(e, items)
+  );
+}
+
+function createProjectHtmlItem(data, idx) {
   const item = document.createElement("li");
   item.innerHTML = `<a href="${data.uri}/">${data.id}. ${data.name}</a>`;
+  item.style.animationDelay = `${0.5 * idx}s`;
 
   return item;
 }
 function createCarouselItem(data) {
-  const item = document.createElement("div");
+  const item = document.createElement("a");
   item.className = "carousel-item";
   item.textContent = `${data.name}`;
+  item.href = `${data.uri}/`;
 
   return item;
 }
