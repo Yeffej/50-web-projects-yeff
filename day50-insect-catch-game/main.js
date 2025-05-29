@@ -23,6 +23,7 @@ class Enemy {
 
     constructor(type = INSECTS[0].name) {
         this.insect = INSECTS.find((i) => i.name === type);
+        this.size = Math.random() * 50 + 50;
         this.#createDomElement();
     }
 
@@ -30,8 +31,21 @@ class Enemy {
         this.domEl = document.createElement('figure');
         this.domEl.className = 'enemy';
 
-        const x = Math.floor(Math.random() * window.innerWidth) + this.domEl.clientWidth;
-        const y = Math.floor(Math.random() * window.innerHeight) + this.domEl.clientHeight;
+        const x = Math.max(
+            this.size,
+            Math.floor(Math.random() * (window.innerWidth - this.size))
+        );
+        const y = Math.max(
+            this.size,
+            Math.floor(Math.random() * (window.innerHeight - this.size))
+        );
+
+
+        console.log('x:', x)
+        console.log('y:', y)
+
+        this.domEl.style.width = `${this.size}px`;
+        this.domEl.style.height = `${this.size}px`;
         this.domEl.style.top = `${Math.min(y, window.innerHeight - this.domEl.clientHeight)}px`;
         this.domEl.style.left = `${Math.min(x, window.innerHeight - this.domEl.clientWidth)}px`;
 

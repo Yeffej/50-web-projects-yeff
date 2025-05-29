@@ -100,7 +100,12 @@ body {
     font-weight: 600;
     color: #fff;
     margin-bottom: 30px;
-    transition: 500ms linear transform;
+    cursor: pointer;
+    transition: all 500ms linear;
+}
+.menu li:hover {
+    animation: GumText 500ms forwards;
+    color: #000;
 }
 
 .menu li:nth-child(1) {
@@ -121,6 +126,25 @@ body {
 }
 .menu.active li:nth-child(3) {
     transform: translateX(80%);
+}
+
+
+@keyframes GumText {
+    0% {
+        scale: 1 1;
+    }
+    25% {
+        scale: 0.75 1;
+    }
+    /* 50% {
+        scale: 1.25 1;
+    } */
+    75% {
+        scale: 1.1 1;
+    }
+    100% {
+        scale: 1 1;
+    }
 }
 
 @media only screen and (min-width: 425px)  {

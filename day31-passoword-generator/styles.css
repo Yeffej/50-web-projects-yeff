@@ -10,14 +10,34 @@ body {
     align-items: center;
     justify-content: center;
     background-color: #035;;
+    font-family: sans-serif, Arial;
+}
+
+button {
+    width: 100%;
+    min-height: 30px;
+    font-size: 1.35em;
+    font-weight: 600;
+    outline: none;
+    border: none;
+    border-radius: 5px;
+    background-color: #fff;
+    cursor: pointer;
+    transition: scale 200ms ease-in-out;
+}
+button:hover {
+    mix-blend-mode: multiply;
+}
+button:active {
+    scale: 0.8;
 }
 
 .password-container {
-    width: 400px;
+    max-width: 600px;
     min-height: 100px;
-    padding: 16px;
+    padding: 32px;
     background-color: #069;
-    box-shadow: 0px 0px 5px #fffa;
+    box-shadow: 0px 0px 5px #0008;
     text-align: center;
     color: #fff;
 }
@@ -39,16 +59,18 @@ body {
     background-color: #035;
     border: none;
     outline: none;
+    color: #fff;
+    font-size: 1.5em;
 }
 .password-settings {
     width: 100%;
+    text-align: left;
 }
-.password-gen-btn {
-    width: 100%;
-    padding: 5px;
-    background-color: #08b;
-    border: none;
-    outline: none;
-    font-size: 1.4em;
-    font-weight: 600;
+.field {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 16px;
+}
+.field input[type="number"] {
+    width: 50px;
 }

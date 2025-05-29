@@ -10,10 +10,33 @@
     <main class="password-container">
         <h2 class="password-title">Password Generator</h2>
         <div class="password-display">
-            <input type="text">
+            <input type="text" id="display" readonly>
         </div>
-        <div class="password-settings"></div>
-        <div class="password-gen-btn"></div>
+        <div class="password-settings">
+            <div class="field">
+                <label>Password Length</label>
+                <input type="number" name="length" value="12">
+            </div>
+            <div class="field">
+                <label>Include uppercase letters</label>
+                <input type="checkbox" name="uppercase" checked>
+            </div>
+            <div class="field">
+                <label>Include lowercase letters</label>
+                <input type="checkbox" name="lowercase" checked>
+            </div>
+            <div class="field">
+                <label>Include numbers</label>
+                <input type="checkbox" name="numbers" checked>
+            </div>
+            <div class="field">
+                <label>Include symbols</label>
+                <input type="checkbox" name="symbols" checked>
+            </div>
+        </div>
+        <button id="btnGen">Generate Password</button>
     </main>
+
+    <script src="./main.js"></script>
 </body>
 </html>
