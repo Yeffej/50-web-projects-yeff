@@ -1,0 +1,170 @@
+:root {
+    --box-color: #0ff6;
+    --size: 50px;
+    --rotate-speed: 30s;
+    --bounce-speed: 2s;
+}
+
+* { 
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #000;
+    overflow: hidden;
+    perspective: 10em;
+    perspective-origin: 50% calc(50% - 3em);
+
+    font-size: var(--size);
+}
+
+.scene {
+    position: relative;
+    transform-style: preserve-3d;
+    animation: RotateScene var(--rotate-speed) infinite linear;
+}
+
+.floor {
+    width: 15em;
+    height: 15em;
+    background-image: 
+        radial-gradient(circle at center, #0000 15%, #000 70%),
+        repeating-conic-gradient(
+            from 45deg,
+            #028dff 0deg 90deg,
+            #dbdbdb 90deg 180deg
+        );
+    background-size: 100%, 1em 1em;
+
+    position: absolute;
+    top: 1em;
+    transform: translate(-50%, -50%) rotateX(90deg);
+}
+
+.cube {
+    width: 2em;
+    height: 2em;
+    transform-style: preserve-3d;
+
+    position: absolute;
+    bottom: -0.97em;
+    left: -1em;
+
+    animation: 
+        CubeHeight var(--bounce-speed) infinite linear;
+
+}
+.cube .left, .cube .right, .cube .front, .cube .back, .cube .top, .cube .bottom {
+    background-color: var(--box-color);
+    position: absolute;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* font-size: .4em; */
+}
+.cube .left, .cube .right, .cube .front, .cube .back {
+    width: 100%;
+    height: 100%;
+    box-shadow: 0 0 0.5em #000a inset;
+}
+.cube .top, .cube .bottom {
+    width: 2em;
+    height: 2em;
+}
+
+.cube .left {
+    /* background-color: #0f07; */
+    transform: translateX(-50%) rotateY(270deg);
+}
+.cube .right {
+    /* background-color: #00a7; */
+    transform: translateX(50%) rotateY(90deg);
+}
+.cube .front {
+    /* background-color: #f097; */
+    transform: translateZ(var(--size));
+}
+.cube .back {
+    /* background-color: #f007; */
+    transform: translateZ(calc( var(--size) * -1 )) rotateY(180deg);
+}
+.cube .top {
+    /* background-color: #ff07; */
+    transform: translateY(-50%) rotateX(90deg);
+}
+.cube .bottom {
+    /* background-color: #aff7; */
+    bottom: -1em;
+    transform: rotateX(270deg);
+    box-shadow: 0 0 0.5em #000;
+}
+
+
+.ball {
+    width: 1em;
+    height: 1em;
+    border-radius: 50%;
+    background-color: lightblue;
+    background-image: radial-gradient(
+        circle at top,
+        lightblue,
+        #000e
+    );
+
+    position: absolute;
+    /* top: -2em; */
+    bottom: 1em;
+    left: -0.5em;
+
+    animation: 
+        BallBaunce var(--bounce-speed) infinite ease-out,
+        RotateScene var(--rotate-speed) infinite linear reverse;
+}
+.cube .top .ball-shadow {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background-image: radial-gradient(
+        #0007,
+        #0000 50%
+    );
+    animation: 
+        BallShadow var(--bounce-speed) infinite ease-out;
+}
+
+
+@keyframes RotateScene {
+    to { transform: rotateY(360deg); }
+}
+
+@keyframes BallBaunce {
+    0%, 100% { bottom: 0.5em; } /* TOUCHING CUBE */
+    50% {
+        bottom: 3em; /* MAX JUMP HEIGHT */
+        animation-timing-function: ease-in;
+    }
+}
+
+@keyframes BallShadow {
+    0%, 100% { transform: scale(1); opacity: 1; }
+    50% {
+        transform: scale(1.5); 
+        opacity: 0.7;
+        animation-timing-function: ease-in;
+    }
+}
+
+@keyframes CubeHeight {
+    0%, 100% { height: 1.5em; } /* TOUCHING BALL */
+    7%, 94% { 
+        height: 2em; /* INITIAL HEIGHT */
+    }
+}

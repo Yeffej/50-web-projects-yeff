@@ -1,0 +1,41 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    background-color: #000;
+    color: #fff;
+    height: 100vh;
+    position: relative;
+}
+
+main {
+    padding: 20px;
+    text-align: center;
+    text-shadow: 1px 1px 5px #000a;
+}
+main::before {
+    content: "";
+    position: absolute;
+    background: url('bg.webp');
+    background-size: cover;
+    inset: 0;
+    z-index: -1;
+
+    mask-image: url('ink.gif');
+    mask-size: cover;
+
+    /* animation: MaskMove 5s linear infinite; */
+}
+main h1 {
+    margin: 25px 0;
+    font-family: 'Hallowed Grounds';
+    font-size: 6em;
+    text-transform: uppercase;
+}
+main p {
+    font-size: 1.2em;
+    text-align: center;
+    color: #333;
+}
+

@@ -36,10 +36,14 @@ const PROJECTS = [
   { id: 31, name: "Passoword Generator", uri: "day31-passoword-generator" },
   { id: 32, name: "Good Cheap Fast", uri: "day32-good-cheap-fast" },
   { id: 33, name: "Notes App", uri: "day33-notes-app" },
-  { id: 34, name: "Animated Countdown", uri: "day34-animated-countdown" },
+  { id: 34, name: "Ink Animation Effect", uri: "day34-ink-animation-effect" },
   { id: 35, name: "Image Carousel 3D", uri: "day35-image-carousel-3D" },
   { id: 36, name: "Hoverboard", uri: "day36-hoverboard" },
-  { id: 37, name: "Pokedex", uri: "day37-pokedex" },
+  {
+    id: 37,
+    name: "Text Background Animation",
+    uri: "day37-text-background-animation",
+  },
   { id: 38, name: "Mobile Tab Nav", uri: "day38-mobile-tab-nav" },
   {
     id: 39,
@@ -51,7 +55,7 @@ const PROJECTS = [
   { id: 42, name: "Live User Filter", uri: "day42-live-user-filter" },
   { id: 43, name: "Feedback Ui Design", uri: "day43-feedback-ui-design" },
   { id: 44, name: "Custom Range Slider", uri: "day44-custom-range-slider" },
-  { id: 45, name: "Mini Netfilx Clone", uri: "day45-mini-netfilx-clone" },
+  { id: 45, name: "Dark Mode Toggle", uri: "day45-dark-mode-toggle" },
   { id: 46, name: "Quiz App", uri: "day46-quiz-app" },
   {
     id: 47,
@@ -61,6 +65,8 @@ const PROJECTS = [
   { id: 48, name: "Random Img Feed", uri: "day48-random-img-feed" },
   { id: 49, name: "Todo List", uri: "day49-todo-list" },
   { id: 50, name: "Insect Catch Game", uri: "day50-insect-catch-game" },
+  { id: 51, name: "Page Transition", uri: "day51-page-transition" },
+  { id: 52, name: "Jumping Ball 3D", uri: "day52-jumping-ball-3d" },
 ];
 
 // indicates is the page is fully loaded.
@@ -102,7 +108,9 @@ function insertItems() {
   projectListWrapper.append(...projectItems);
 
   if (carouselWrapper.children.length > 0) {
-    removeCarouselItems(items);
+    removeCarouselItems().then(() => {
+      addCarouselItems(items);
+    });
   } else {
     addCarouselItems(items);
   }
@@ -118,7 +126,7 @@ function addCarouselItems(items) {
   carouselWrapper.append(...carouselItems);
 }
 
-function handleCarouselTransitionEnd(e, items) {
+function handleCarouselTransitionEnd(e) {
   if (
     carouselWrapper.classList.contains("show") ||
     e.propertyName != "transform"
@@ -127,7 +135,6 @@ function handleCarouselTransitionEnd(e, items) {
 
   carouselWrapper.classList.add("show");
   carouselWrapper.innerHTML = "";
-  addCarouselItems(items);
 
   carouselWrapper.removeEventListener(
     "transitionend",
@@ -135,14 +142,19 @@ function handleCarouselTransitionEnd(e, items) {
   );
 }
 
-function removeCarouselItems(items) {
+function removeCarouselItems() {
   if (isPageLoaded) {
     carouselWrapper.classList.remove("show");
   }
 
-  carouselWrapper.addEventListener("transitionend", (e) =>
-    handleCarouselTransitionEnd(e, items)
-  );
+  return new Promise((resolve) => {
+      carouselWrapper.addEventListener("transitionend", (e) => {
+        handleCarouselTransitionEnd(e, resolve)
+        resolve();
+      });
+  })
+
+
 }
 
 function createProjectHtmlItem(data, idx) {
