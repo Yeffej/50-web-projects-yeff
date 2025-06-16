@@ -57,7 +57,7 @@ const clock = {
 function animate() {
   const current = performance.now();
   clock.elapsedTime = (current - clock.start) / 1000;
-  clock.deltaTime = (current - clock.current) / 1000;
+  clock.deltaTime = Math.min(100, (current - clock.current)) / 1000;
   clock.current = current;
 
   cards.forEach((card) => {

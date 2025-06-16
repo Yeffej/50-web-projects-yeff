@@ -67,6 +67,12 @@ const PROJECTS = [
   { id: 50, name: "Insect Catch Game", uri: "day50-insect-catch-game" },
   { id: 51, name: "Page Transition", uri: "day51-page-transition" },
   { id: 52, name: "Jumping Ball 3D", uri: "day52-jumping-ball-3d" },
+  { id: 53, name: "Cards Rgb Tilt Effect", uri: "day53-cards-rgb-tilt-effect" },
+  {
+    id: 54,
+    name: "Infinite Horizontal Scroll",
+    uri: "day54-infinite-horizontal-scroll",
+  },
 ];
 
 // indicates is the page is fully loaded.
@@ -148,13 +154,11 @@ function removeCarouselItems() {
   }
 
   return new Promise((resolve) => {
-      carouselWrapper.addEventListener("transitionend", (e) => {
-        handleCarouselTransitionEnd(e, resolve)
-        resolve();
-      });
-  })
-
-
+    carouselWrapper.addEventListener("transitionend", (e) => {
+      handleCarouselTransitionEnd(e, resolve);
+      resolve();
+    });
+  });
 }
 
 function createProjectHtmlItem(data, idx) {
